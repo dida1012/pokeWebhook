@@ -2,7 +2,7 @@ var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 var request = new XMLHttpRequest()
 
 module['exports'] = function helloWorld (hook) {
-  var content = hook.req.body.queryResult.queryText;
+  var content = hook.req.body.queryResult.parameters['content'];
   // request.open('GET', 'https://pokeapi.co/api/v2/pokemon/'+content+'/', true)
   request.open('GET', 'https://pokeapi.co/api/v2/pokemon/ditto/', true)
   request.onload = function() {
@@ -13,6 +13,8 @@ module['exports'] = function helloWorld (hook) {
           // hook.res.json({"fulfillmentText": data.abilities[0].ability.name});
           hook.res.json({"fulfillmentText": content});
           hook.res.end();
+          
+
         } else {
       console.log('error')
       hook.res.json({"fulfillmentText": data.weight});
