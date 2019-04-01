@@ -8,7 +8,7 @@ module['exports'] = function helloWorld (hook) {
     var data = JSON.parse(this.responseText)
 
     if (request.status >= 200 && request.status < 400) {
-          hook.res.json({"fulfillmentText": data.weight});
+          hook.res.json({"fulfillmentText": data.abilities.ability[0].name});
           hook.res.end();
     } else {
       console.log('error')
@@ -17,10 +17,3 @@ module['exports'] = function helloWorld (hook) {
   }
   request.send()
 }
-
-// module['exports'] = function helloWorld (hook) {
-//   // var content = hook.req.body.queryResult.parameters['content'];
-//   hook.res.json({"fulfillmentText": "asd"});
-//   hook.res.end();
-// };
-
