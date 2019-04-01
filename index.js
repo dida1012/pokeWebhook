@@ -12,6 +12,7 @@ module['exports'] = function helloWorld (hook) {
           switch(intent){
             case "Abilities": hook.res.json({"fulfillmentText": data.abilities[0].ability.name}); break;
             case "Height": hook.res.json({"fulfillmentText": data.height}); break;
+            default: hook.res.json({"fulfillmentText": "No Intent parsed"}); break;
           }
           hook.res.end();
         } else {
