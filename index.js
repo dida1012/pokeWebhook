@@ -8,7 +8,7 @@ module['exports'] = function helloWorld (hook) {
     var data = JSON.parse(this.responseText)
 
     if (request.status >= 200 && request.status < 400) {
-          hook.res.json({"fulfillmentText": data.abilities.ability.name});
+          hook.res.json({"fulfillmentText": data.abilities[1].name});
           hook.res.end();
     } else {
       console.log('error')
