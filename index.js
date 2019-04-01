@@ -2,7 +2,8 @@ var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 var request = new XMLHttpRequest()
 
 module['exports'] = function helloWorld (hook) {
-  request.open('GET', 'https://pokeapi.co/api/v2/pokemon/ditto/', true)
+  var content = hook.req.body.queryResult.parameters['content'];
+  request.open('GET', 'https://pokeapi.co/api/v2/pokemon/'+content+'/', true)
   request.onload = function() {
     // Begin accessing JSON data here
     var data = JSON.parse(this.responseText)
