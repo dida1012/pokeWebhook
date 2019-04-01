@@ -8,8 +8,12 @@ module['exports'] = function helloWorld (hook) {
   request.onload = function() {
     var data = JSON.parse(this.responseText)
     if (request.status >= 200 && request.status < 400) {
-          // hook.res.json({"fulfillmentText": data.abilities[0].ability.name});
-          hook.res.json({"fulfillmentText": intent});
+          switch(intent){
+            case "Ability": hook.res.json({"fulfillmentText": data.abilities[0].ability.name}); break;
+            case "Height": hook.res.json({"fulfillmentText": data.height}); break;
+          }
+          
+          
           hook.res.end();
         } else {
       console.log('error')
