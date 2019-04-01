@@ -2,8 +2,6 @@ var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 var request = new XMLHttpRequest()
 
 module['exports'] = function helloWorld (hook) {
-  console.log('error')
-
   var intent = hook.req.body.queryResult.intent['displayName'];
   var content = hook.req.body.queryResult.parameters['pokemon'];
   request.open('GET', 'https://pokeapi.co/api/v2/pokemon/'+content+'/', true)
