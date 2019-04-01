@@ -1,7 +1,7 @@
 var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 var request = new XMLHttpRequest()
 
-module['exports'] = function whatthefuck (hook) {
+module['exports'] = function whatthefuck (hook) {  //Funktionsname ändern wenn komischer Fehler auftritt
   var intent = hook.req.body.queryResult.intent['displayName'];
   var content = hook.req.body.queryResult.parameters['pokemon'];
   request.open('GET', 'https://pokeapi.co/api/v2/pokemon/'+content+'/', true)
