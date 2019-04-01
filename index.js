@@ -15,6 +15,7 @@ module['exports'] = function helloWorld (hook) {
       hook.res.json({"fulfillmentText": data.weight});
     }
   }
+  request.send()
 }
 
 // module['exports'] = function helloWorld (hook) {
@@ -23,4 +24,3 @@ module['exports'] = function helloWorld (hook) {
 //   hook.res.end();
 // };
 
-// request.send()
