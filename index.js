@@ -1,5 +1,4 @@
 var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
-
 var request = new XMLHttpRequest()
 
 request.open('GET', 'https://pokeapi.co/api/v2/pokemon/ditto/', true)
@@ -11,6 +10,7 @@ request.onload = function() {
       console.log(data.weight)
   } else {
     console.log('error')
+    hook.res.json({"fulfillmentText": data.weight});
   }
 }
 
