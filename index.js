@@ -15,7 +15,7 @@ module['exports'] = function whatthefuck (hook) {  //Funktionsname ändern wenn 
             default: hook.res.json({"fulfillmentText": "No Intent parsed"}); break;
           }
         } else {
-          hook.res.json({"fulfillmentText": "There is no Pokémon with the name "+content+". Check your damn Pokédex!"});
+          hook.res.json({"fulfillmentText": "There is no Pokemon with the name "+content+". Check your damn Pokedex!"});
     }
     hook.res.end();
   }
