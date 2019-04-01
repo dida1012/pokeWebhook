@@ -14,10 +14,10 @@ module['exports'] = function whatthefuck (hook) {  //Funktionsname ändern wenn 
             case "Height": hook.res.json({"fulfillmentText": data.height}); break;
             default: hook.res.json({"fulfillmentText": "No Intent parsed"}); break;
           }
-          hook.res.end();
         } else {
-      console.log('error')
+          hook.res.json({"fulfillmentText": "There is no Pokemon with the name "+content+". Check your damn Pokedex!"});
     }
+    hook.res.end();
   }
   request.send()
 }
