@@ -9,11 +9,10 @@ module['exports'] = function helloWorld (hook) {
     var data = JSON.parse(this.responseText)
     if (request.status >= 200 && request.status < 400) {
           switch(intent){
-            case "Ability": hook.res.json({"fulfillmentText": data.abilities[0].ability.name}); break;
+            case "Abilities": hook.res.json({"fulfillmentText": data.abilities[0].ability.name}); break;
             case "Height": hook.res.json({"fulfillmentText": data.height}); break;
+            default: hook.res.json({"fulfillmentText": "This Intent is not implemented yet. Fill your Pokedex to unlock more Intents."}); break;
           }
-          
-          
           hook.res.end();
         } else {
       console.log('error')
