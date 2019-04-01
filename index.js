@@ -11,7 +11,6 @@ module['exports'] = function helloWorld (hook) {
           switch(intent){
             case "Abilities": hook.res.json({"fulfillmentText": data.abilities[0].ability.name}); break;
             case "Height": hook.res.json({"fulfillmentText": data.height}); break;
-            default: hook.res.json({"fulfillmentText": "This Intent is not implemented yet. Fill your Pokedex to unlock more Intents."}); break;
           }
           hook.res.end();
         } else {
