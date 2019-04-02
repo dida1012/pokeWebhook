@@ -11,14 +11,14 @@ module['exports'] = function whatthefuck (hook) {  //Funktionsname ändern wenn 
       var data = JSON.parse(this.responseText)
       pokemon = pokemon.charAt(0).toUpperCase() + pokemon.slice(1);
       var output = '';
-          switch(intent){
-            case "Abilities": output = pokemon+" has the Ability '"+data.abilities[0].ability.name+"'."; break;
-            case "Height": output = pokemon+" is "+data.height+" meters tall."; break;
-            default: output = "No Intent parsed"; break;
-          }
-        } else {
-          output = "There is no Pokemon with the name "+pokemon+". Check your damn Pokedex!";
-    }
+      switch(intent){
+        case "Abilities": output = pokemon+" has the Ability '"+data.abilities[0].ability.name+"'."; break;
+        case "Height": output = pokemon+" is "+data.height+" meters tall."; break;
+        default: output = "No Intent parsed"; break;
+      }
+    } else {
+      output = "There is no Pokemon with the name "+pokemon+". Check your damn Pokedex!";
+      }
     hook.res.json({"fulfillmentText": output});
     hook.res.end();
   }
